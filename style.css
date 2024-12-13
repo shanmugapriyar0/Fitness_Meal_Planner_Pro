@@ -10,15 +10,30 @@ body{
 
 #loginContainer {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 40%;
+    grid-template-rows: 150%;
     gap: 2px;
     margin: 20px;
     padding: 30px;
+    height: auto;
     background-color: white;
 }
 
 
-#loginContainer1{
+#registerContiner{
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 110%;
+    gap: 2px;
+    margin: 20px;
+    padding: 30px;
+    height: auto;
+    background-color: white;
+
+}
+
+
+#loginContainer1 , #registerContiner1 , #registerContiner3{
     background-color: white;
     border-radius: 10px;
     margin: 5px;
@@ -27,8 +42,8 @@ body{
 }
 
 
-#loginContainer2{
-    background-color: rgb(194, 240, 194);
+#loginContainer2 , #registerContiner2{
+    background-color: rgb(194, 248, 188);
     text-align: center;
     margin: 5px;
     height: 90%;
@@ -37,12 +52,24 @@ body{
 }
 
 
+
+#loginContainer2{
+    background-color: rgb(194, 248, 188);
+    text-align: center;
+    margin: 5px;
+    height: 90%;
+    border-radius: 10px;
+    border-color: rgb(95, 156, 95);  
+}
+
+
+
 .form{
     width: 400px; 
     height:auto;
     padding:30px;
     background-color: white;
-    border: rgb(196, 204, 196) 1px solid;
+    border: rgb(160, 175, 160) 1px solid;
     box-shadow: 0px 4px 8px rgba(0,0,0,2);
     
  }
@@ -51,7 +78,7 @@ body{
 input{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: rgb(191, 218, 175);
-    width: 100%;
+    width: 90%;
     padding: 10px 18px;
     margin: 8px 0;
     display: inline-block;
@@ -62,11 +89,14 @@ input{
 
 p{
     color: rgb(7, 54, 7); 
+
 }
 
 
 button{
     padding: 10px 18px;
+    margin: 8px 0;
+    width: 90%;
     box-sizing: border-box;
     border-style: none;
     border-radius: 5px;
