@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fitness Meal Planner (homePage) </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="homepage.css">
+    <script defer src="script.js"></script>
+
+</head>
+<body>
+
+    <div class="homePageContainer">
+        <div class="homePageContainer1" id="navigationBar">
+    
+            <h2><i class="fas fa-utensils" ></i> FitMeal Partner </h2><br>
+
+            <div class="navigationMenu"> Home </div>
+            <div class="navigationMenu"> About Us</div>
+            <div class="navigationMenu"> Blogs</div>
+            <div class="navigationMenu"> Profile</div>
+            
+            <div class="navigationMenu" id="signOut" onclick="toOpenLoginForm()"><i class="fas fa-sign-out-alt"></i> sign out</div>
+
+        </div>
+
+        <div class="homePageContainer2" id="homePageOptions">
+          <div class="homePageOptions">
+
+                <div class="homePageOption1">Your Diet Planner</div>
+
+                <div class="homePageOption2">
+                    <button type="submit" onclick="toShowExtraMealForm()" value="Add your Extra Meal"> Add your Extra Meal</button>
+                </div>
+
+                <div class="homePageOption3" id="userDetails" onclick="toShownUserDetails()">
+                    <i class="fa fa-user"></i> 
+                    <div class="shownUserDetails">
+        
+                        <ul>
+                            <li id="username"></li>
+                            <li> scope: Loss Weight</li>
+                            <li> Height:<span id="userHeight"></span> |   Weight:<span id="userWeight"></span>  </li>
+                            <li> Eating habit: veg</li>
+                            <li> Target: Reduce a weight in <span id="calcuateMaxWeight"></span> kgs</li>
+                        </ul>
+                    </div>       
+                    
+                </div>
+
+            </div> 
+        </div>
+    </div>
+    
+</body>
+
+</html>
