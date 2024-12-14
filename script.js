@@ -29,3 +29,4 @@ function validatePassword(){
         message.innerText = "Password do not match.";
     }
 }
+
