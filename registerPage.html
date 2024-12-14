@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Fitness Meal Planner(Register page)</title>
     <link rel="stylesheet" href="style.css">
 
-    
+    <script defer src="script.js" ></script>
+
 </head>
 <body>
+
     <div id="registerContiner">
 
         <div id="registerContiner1">
-            <img src="images/images2.jpg" alt="image2">
+
+            <img src="images/images3.jpg" alt="image2" class="top">
+
         </div>
 
         <div id="registerContiner2">
@@ -22,23 +27,25 @@
                 <h2><span> <img src=""></span> FitMeal Partner</h2><br>
                 <h3> Create a Account</h3>
                 
-                <input type="text" placeholder="Username" required><br>
-                <input type = "text" placeholder = "E-mail" required><br>
+                <input type="text" placeholder="Username" name="Username" required><br>
+                <input type = "text" placeholder = "E-mail" name="Email" required><br>
 
-                <input type = "password" placeholder = "Password" required><br>
-                <input type = "password" placeholder = "Confirm Password" required onmouseout="toCheckPassword()"><br>
-
-                <button type = "submit" value = " SignUp "> Sign-up </button><br>
+                <input type = "password" placeholder = "Password"  name="password" id="pass1" onkeyup=" validatePassword()" required><br>
+                <input type = "password" placeholder = "Confirm Password" id="pass2" onkeyup=" validatePassword()" required ><br>
+                
+                <p id="message"></p>
+                <button type = "submit" value = " SignUp" > Sign-up </button><br>
                 <p> Yes I have an account? <span id = "regiterFormLink"  onclick = "toOpenLoginForm()"> Login </span></p><br>
 
             </form>
         </div>
 
         <div id="registerContiner3">
-            <img src="images/images3.jpg" alt="image3">
+            <img src="images/images2.jpg" alt="image3" class="bottom">
         </div>
 
     </div>
     
 </body>
+
 </html>
