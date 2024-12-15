@@ -2,16 +2,44 @@
 
 console.log("script will be conected");
 
-function toOpenRegisterationForm(){
+const toOpenRegisterationForm=()=>{
     window.location.href= "registerPage.html";
 }
 
-function toOpenLoginForm(){
+const toOpenLoginForm=()=>{
     window.location.href= "index.html";
 }
 
 
-function validatePassword(){
+
+const toShownUserDetails=()=>{
+    
+    const userDetails = document.getElementsByClassName("shownUserDetails");
+    console.log("function will be called");
+    console.log( document.getElementsByClassName("shownUserDetails").value);
+    if (userDetails.style.visibility === 'hidden'){
+        userDetails.style.visibility = 'visible';
+    }
+    else{
+        userDetails.style.visibility = 'hidden';
+    }
+    
+    
+}
+
+const handleSubmit =()=>{
+    const userName= document.getElementById("loginInput").value
+    const password = document.getElementById("loginInput1").value
+    const postLogin = fetch('http://localhost:3005/login',{
+    method:"POST",
+    body: JSON.stringify({ username: userName,password: password })
+    }).then((response)=>{
+        return response;
+    }).catch((err)=>{return err})
+    console.log("postLogin:",postLogin)
+}
+
+const validatePassword=()=>{
 
     const pass1 = document.getElementById("pass1").value;
     const pass2 = document.getElementById("pass2").value;
