@@ -75,7 +75,7 @@ img{
     height: 100%;
     background-color: rgb(191, 218, 175);
     transition: 0.5s ease;
-    transform: translateX(0);
+    
 }
 
 .navigationMenu{ cursor: pointer;
@@ -114,7 +114,7 @@ img{
 .homePageOptions{
     display:grid;
     width:100%;
-    grid-template-columns:78% 18% 20%;
+    grid-template-columns:70% 24% 2%;
     grid-template-rows: 70px;
     align-items: center;
 }
@@ -130,8 +130,21 @@ img{
     
 }
 
+
+.extraMealForm{
+
+    margin-top: 5px;
+    max-height: 40px;
+    max-width:100%;
+}
+
 .homePageOption3{
     cursor: pointer;
+    
+}
+
+.homePageOption3:hover{
+    background-color: rgb(191, 218, 175);
 }
 
 #userDetails{
@@ -143,10 +156,17 @@ img{
     color: rgb(10, 48, 10);
 }
 
+.shownUserDetailsContent:hover {
+    font-weight: bold;
+}
+
 .shownUserDetails{
+    visibility: visible;
     margin-top: 30px;
-    margin-right: 50%;
-    width: 100%;
+    margin-right: 2%;
+    margin-left:70%;
+    max-width: 300px;
+    max-height: 400px;
     padding: 30px;
     display: flex;
     align-items: center;
@@ -154,4 +174,13 @@ img{
     position: relative;
     background-color: rgb(191, 218, 175);
 }
+
+.userDetailsList{
+    list-style-type: none;
+    text-align: left;
+    padding: 5px 5px 5px 5px;
+}
+
+
+
 
