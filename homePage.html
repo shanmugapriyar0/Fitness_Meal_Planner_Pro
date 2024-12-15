@@ -34,27 +34,33 @@
                 <div class="homePageOption1">Your Diet Planner</div>
 
                 <div class="homePageOption2">
-                    <button type="submit" onclick="toShowExtraMealForm()" value="Add your Extra Meal"> Add your Extra Meal</button>
+                    <button type="submit" onclick="toShowExtraMealForm()" value="Add your Extra Meal" class="extraMealForm"> Add your Extra Meal</button>
+
+                      
+
                 </div>
 
-                <div class="homePageOption3" id="userDetails" onclick="toShownUserDetails()">
-                    <i class="fa fa-user"></i> 
-                    <div class="shownUserDetails">
-        
-                        <ul>
-                            <li id="username"></li>
-                            <li> scope: Loss Weight</li>
-                            <li> Height:<span id="userHeight"></span> |   Weight:<span id="userWeight"></span>  </li>
-                            <li> Eating habit: veg</li>
-                            <li> Target: Reduce a weight in <span id="calcuateMaxWeight"></span> kgs</li>
-                        </ul>
-                    </div>       
-                    
+                <div class="homePageOption3" id="userDetails" onmouseover="toShownUserDetails()">
+                    <i class="fa fa-user" ></i> 
                 </div>
 
             </div> 
+
+            <div class="shownUserDetails">
+        
+                <ul class="userDetailsList">
+                    <li class="shownUserDetailsContent"id="username"></li>
+                    <li class="shownUserDetailsContent"> scope: Loss Weight</li>
+                    <li class="shownUserDetailsContent"> Height:<span id="userHeight"></span> |   Weight:<span id="userWeight"></span>  </li>
+                    <li class="shownUserDetailsContent"> Eating habit: veg</li>
+                    <li class="shownUserDetailsContent"> Target: Reduce a weight in <span id="calcuateMaxWeight"></span> kgs</li>
+                </ul> 
+        
+            </div>     
         </div>
     </div>
+
+    
     
 </body>
 
