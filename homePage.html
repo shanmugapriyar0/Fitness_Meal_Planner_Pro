@@ -7,7 +7,10 @@
 
     <title>Fitness Meal Planner (homePage) </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward_ios" />
     
+
     <link rel="stylesheet" href="homePage.css">
     <script defer src="script.js"></script>
 
@@ -18,7 +21,6 @@
         <div class="homePageContainer1" id="navigationBar">
     
             <h2><i class="fas fa-utensils" ></i> FitMeal Partner </h2><br>
-
             <div class="navigationMenu"> Home </div>
             <div class="navigationMenu"> About Us</div>
             <div class="navigationMenu"> Blogs</div>
@@ -29,8 +31,8 @@
         </div>
 
         <div class="homePageContainer2" id="homePageOptions">
-          <div class="homePageOptions">
-
+             
+            <div class="homePageOptions">
                 <div class="homePageOption1">Your Diet Planner</div>
 
                 <div class="homePageOption2">
@@ -40,23 +42,145 @@
 
                 </div>
 
-                <div class="homePageOption3" id="userDetails" onmouseover="toShownUserDetails()">
-                    <i class="fa fa-user" ></i> 
+                <div class="homePageOption3" id="userDetails" >
+                    <i class="fa fa-user" onmouseover="toShownUserDetails()" onmouseout="toHideUserDetails()" ></i> 
                 </div>
 
             </div> 
+            <div class="homePageRowContainer1">
 
-            <div class="shownUserDetails">
-        
-                <ul class="userDetailsList">
-                    <li class="shownUserDetailsContent"id="username"></li>
-                    <li class="shownUserDetailsContent"> scope: Loss Weight</li>
-                    <li class="shownUserDetailsContent"> Height:<span id="userHeight"></span> |   Weight:<span id="userWeight"></span>  </li>
-                    <li class="shownUserDetailsContent"> Eating habit: veg</li>
-                    <li class="shownUserDetailsContent"> Target: Reduce a weight in <span id="calcuateMaxWeight"></span> kgs</li>
-                </ul> 
-        
-            </div>     
+                <div class="dietChatRecommandation">
+                    <div class="dietChatRecommandation1" >
+                        <div class="calendar"><i class="fas fa-calendar"></i>Today</div>
+                        <div id="breakfast">Breakfast</div>
+                        <div id="lunch">Lunch</div>
+                        <div id="dinner">Dinner</div>
+                        <div id="snacks">Snacks</div>
+                    </div>
+                    <div class="dietChatRecommandation2">
+                        <div class="dietChat1">Diet Chat Recommanded</div>
+                        <div class="dietChat2">
+                            <img src="images/apple.jpg" class="dietImage1">
+                            <img src="images/bread.jpg" class="dietImage2">
+                            <img src="images/milk.jpg" class="dietImage3">
+                        </div>
+                        <div class="dietChatText">
+                            <div class="innerText1"> </div>
+                            <div class="innerText2"></div>
+                            <div class="innerText3"></div>
+                        </div>
+                        <div class="dietChat3">Today target :<span> 243 </span>Calorie</div>
+                        <div class="dietChat4"> Your Customise :<span> 367 </span>calorie</div>
+                    </div>
+                </div>
+
+                <div class="caloriesColculator">
+
+                </div>
+                <div>
+                    <div class="todayExtraMeal">
+                        <div class="shownUserDetails">
+                            <ul class="userDetailsList">
+                                <li class="shownUserDetailsContent"id="username"></li>
+                                <li class="shownUserDetailsContent"> scope: Loss Weight</li>
+                                <li class="shownUserDetailsContent"> Height:<span id="userHeight"></span> |   Weight:<span id="userWeight"></span>  </li>
+                                <li class="shownUserDetailsContent"> Eating habit: veg</li>
+                                <li class="shownUserDetailsContent"> Target: Reduce a weight in <span id="calcuateMaxWeight"></span> kgs</li>
+                            </ul> 
+                        </div> 
+                        <div class="todayExtraMealRow1">
+                            <div class="extraMeal">Today Extra Meal</div>
+                            <div></div>
+                            <div class="date"><i class="fa fa-calendar"> <span id="date"></span></i></div>
+                        </div>
+                        <div class="todayExtraMealRow2">
+                            <div>Snacks:<br> Potto chips <br><span>536</span> calories</div>
+                            <div>Coffee: <br>250 ml<br> <span> 150</span> calories</div>
+                        </div>
+                        <div class="todayExtraMealRow3">
+                            <div>samosa:  <br> 40 grms <br><span>174</span> calories</div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+            <h3 >healthy Benifits</h3>
+            <div class="homePageRowContainer2">
+                
+                <div class="wrapper">
+                    <i  id="left" class="fa-solid fa-angle-left"></i>
+                    <ul class="foodItems">
+                        <li class="card">
+                            <div class="img"> <img src="images/fruitmix.jpg" > </div>
+                            <p>Fresh fruits with vibrant Fruitmix</p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/dryFruits.jpg"></div>
+                            <p>Healthy Dried Fruits and Nuts Mix</p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/vegetableSalad.jpg" ></div> 
+                            <p>vibrant Leafy Salad with Bell Peppers </p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/broccoli.jpg "></div>
+                            <p>Tender Broccoli and crisp green Beans</p>
+    
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/orange.jpg"></div>
+                            <p>Fresh Orange</p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/pear.jpg"  ></div>  
+                            <p>Fresh and Healty Pear </p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/oats.jpg"></div>  
+                             <p>Nutritions whole grains Oats </p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/lemonJuice.jpg" ></div>                  
+                            <p>Fresh LemonJuice with pinch of Salt</p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/brownrice.jpg"></div>
+                            <p>Fiber and Nutrients Brown Rice</p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/banana.jpg"></div> 
+                            <p>Organic Bananas</p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/apple.jpg"></div>   
+                            <p>Sweet and Crisp Apple </p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/bread.jpg"></div>
+                            <p>Crisp golden-brown Bread</p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/salad.jpg"></div>
+                            <p>Colorful Salad with Fresh Vegetables</p>
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/water.jpg"></div>
+                            <p>Refreshing Splashing Water 4Liter PerDay</p>
+    
+                        </li>
+                        <li class="card">
+                            <div class="img"><img src="images/muskmelon.jpg"></div>   
+                            <p>Sweet & Aromatic cup of Muskmelon</p>
+                        </li>
+                    </ul>
+                    <i id="right" class="fa-solid fa-angle-right"></i>
+                </div>
+
+            </div>
+            <p class="finalContent">@ 2025 <span>FitMealPartner.in </span>All rights reserved. </p>
+            </div> 
+              
         </div>
     </div>
 
