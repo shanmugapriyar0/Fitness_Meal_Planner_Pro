@@ -76,7 +76,7 @@ body{
     border-color: rgb(95, 156, 95);  
 }
 
-#loginInput{
+#loginInput1,#loginInput2{
     margin: 15px 0;
 }
 
