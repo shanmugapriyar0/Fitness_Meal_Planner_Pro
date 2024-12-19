@@ -21,16 +21,57 @@ const toHideUserDetails=()=>{
     document.querySelector(".todayExtraMeal").style.visibility='visible';
     
 }
-const handleSubmit =()=>{
-    const userName= document.getElementById("loginInput").value
-    const password = document.getElementById("loginInput1").value
-    const postLogin = fetch('http://localhost:3005/login',{
-    method:"POST",
-    body: JSON.stringify({ username: userName,password: password })
-    }).then((response)=>{
-        return response;
-    }).catch((err)=>{return err})
-    console.log("postLogin:",postLogin)
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("loginInput1").value.trim();
+    const password = document.getElementById("loginInput2").value.trim();
+    if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:3005/login', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+        });
+
+        // Check if the response is not ok
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || "Login failed.");
+        }
+
+        // Parse the response JSON
+        const result = await response.json();
+        alert(result.message || "Login successful!");
+
+        // Redirect to homepage
+        window.location.href = "homepage.html"; 
+    } catch (error) {
+        console.error("Error during login:", error);
+        alert(error.message || "An error occurred. Please try again.");
+    }
+};
+
+
+const handleSignUp =(e)=>{
+    e.preventDefault();
+    const Username = document.getElementById("username").value;
+    const Email = document.getElementById("useremail").value;
+    const Password =document.getElementById("pass1").value;
+    const postLogin = fetch('http://localhost:3005/signUp',{
+        method:"POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({Username ,Email, Password })
+        }).then((response)=>{
+            return response;
+        }).catch((err)=>{return err})
+        console.log("postLogin:",postLogin)
+    alert("Registeration Successfull!!...");
+    window.location.href="index.html";
+    
 }
 
 const validatePassword=()=>{
@@ -51,46 +92,51 @@ const validatePassword=()=>{
         message.innerText = "Password do not match.";
     }
 }
-
 const foodItems = document.querySelector(".foodItems");
 const arrowBtns = document.querySelectorAll(".wrapper i");
-const firstCardWidth = foodItems.querySelector(".card").offsetWidth;
+const firstCardWidth = document.querySelector(".card");
 let isDragging = false, startX, startScrollLeft;
 
 arrowBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        foodItems.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
-    });
+        btn.addEventListener("click", () => {
+            foodItems.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+        });
 });
 
-const toCallSelectItem= ()=>{
-    console.log("fuction will be callled");
-    let card = document.querySelector(".card");
-    card.style.backroundColor = "rgb(191, 218, 175)";
-}
+const toCallSelectItem = () => {
+        console.log("function will be called");
+        let card = document.querySelector(".card");
+        card.style.backgroundColor = "rgb(191, 218, 175)";
+    };
 
-const dragStart = () =>{
-    isDragging = true;
-    foodItems.classList.add("dragging");
-    startX = e.pageX; 
-    startScrollLeft = foodItems.scrollLeft;
-}
-const dragstop = () =>{
-    isDragging = false;
-    foodItems.scrollLeft = startScrollLeft - (e.pageX - startX);
-}
-const dragging = (e) => {
-    if(!isDragging) return;
-    foodItems.scrollLeft = e.pageX;
-}
+    const dragStart = () => {
+        isDragging = true;
+        foodItems.classList.add("dragging");
+        startX = e.pageX; 
+        startScrollLeft = foodItems.scrollLeft;
+    };
+    
+    const dragStop = () => {
+        isDragging = false;
+        foodItems.scrollLeft = startScrollLeft - (e.pageX - startX);
+    };
+
+    const dragging = (e) => {
+        if (!isDragging) return;
+        foodItems.scrollLeft = e.pageX;
+    };
+
 foodItems.addEventListener("mousedown", dragStart);
 foodItems.addEventListener("mousemove", dragging);
+
 
 const now = new Date();
 const year = now.getFullYear();
 const month = String(now.getMonth()+1).padStart(2, "0");
 const day = String(now.getDate()).padStart(2, '0');
 const displayDate = () =>{
+    console.log("its work");
+    document.getElementById("date1").textContent = `${day}/${month}/${year}`;
     document.getElementById("date").textContent = `${day}/${month}/${year}`;
 }
 const hours = now.getHours();
@@ -112,7 +158,7 @@ let Menu = () =>{
             dietImage2.src="images/apple.jpg";
             InnerText2.innerHTML="1 apple";
             dietImage3.src="images/bread.jpg";
-            InnerText3.innerHTML="2 Bread"
+            InnerText3.innerHTML="2 Bread";
         }
         else if(hours < 16){
             dietImage1.src="images/watermelon.jpg";
@@ -198,7 +244,7 @@ let Menu = () =>{
             InnerText1.innerHTML="Dryfruits";
             dietImage2.src="images/milk.jpg";
             InnerText2.innerHTML="1/2 glass Milk";
-            dietImage3.src="images/blank.png ";
+            dietImage3.src="images/blank.png";
             InnerText3.innerHTML="";
     
         }
@@ -207,7 +253,7 @@ let Menu = () =>{
             InnerText1.innerHTML="1 Broccoli & Peas";
             dietImage2.src="images/water.jpg";
             InnerText2.innerHTML="1 glass water";
-            dietImage3.src="";
+            dietImage3.src="images/blank.png";
             InnerText3.innerHTML="";    
             }
     }
@@ -243,7 +289,7 @@ let Menu = () =>{
             dietImage2.src="images/milk.jpg";
             InnerText2.innerHTML=" 1 glass Milk";
             dietImage3.src="images/blank.png";
-            InnerText3.innerHTML="";    
+            InnerText3.innerHTML=" ";    
             }
     }
     else if(dayName === 'Friday'){
@@ -385,9 +431,59 @@ const calendar = () =>{
         Menu();
     }
 }
+const gaugeElement = document.querySelector(".gauge");
+const calorieMeter= (gauge,val) =>{
+    let rotation = val/500;
+    if(rotation < 0 || rotation > 1){
+        return ;
+    }
+    console.log("calorie called",rotation);
+    gauge.querySelector(".guage--fill").style.transform = `rotate(${rotation}turn)`;
+    gauge.querySelector(".guage--cover").textContent = `${val} calories`;
+}
+
+const calorieValue = () =>{
+    const calorie = document.getElementById("calorieValue");
+    let dayIndex = days.indexOf(dayName);
+    let calories;
+    if (hours < 12){ 
+        calories=[240, 220, 180 ,160 , 250, 300, 270];
+        calorie.textContent=calories[dayIndex];
+        calorieMeter(gaugeElement,calories[dayIndex]);
+    }
+    else if(hours < 16){
+        calories=[330, 320, 280 ,260 , 350, 270, 290];
+        calorie.textContent=calories[dayIndex];
+        calorieMeter(gaugeElement,calories[dayIndex]);
+    }
+    else if(hours < 18){
+        calories=[140, 160, 90 ,100 , 50, 70,200];
+        calorie.textContent=calories[dayIndex];
+        calorieMeter(gaugeElement,calories[dayIndex]);
+    }  
+    else{
+        calories=[230, 120, 180 ,200 , 315, 240,290];
+        calorie.textContent=calories[dayIndex];
+        calorieMeter(gaugeElement,calories[dayIndex]);
+    }
+
+}
+
+
+// Ensure DOM is loaded before accessing the canvas
+  
+
 document.addEventListener("DOMContentLoaded", () => {
     calendar();
     Menu();
     displayDate();
+    calorieValue();
 });
+
+const handleExtraMealModal=()=> {
+    const modalElement = document.getElementById('extraMealModal');
+    const modalInstance = new bootstrap.Modal(modalElement); // Initialize the modal
+    modalInstance.show(); // Call the show() method on the initialized instance
+}
+function closed(){return;}
 
