@@ -150,8 +150,10 @@ p{
 }
 
 .caloriesColculator{
+    align-items: center;
     background-color: rgb(191, 218, 175);
     border-radius: 5px;
+    max-height:190;
 }
 
 .todayExtraMeal{
@@ -262,10 +264,10 @@ p{
 }
 
 .finalContent{
-    padding: 10px;
+    /* padding: 10px; */
     background-color: rgb(10, 48, 10);
     color: white;
-    text-align: center;
+    /* text-align: center; */
     text-spacing-trim: 1px;
 }
 .finalContent span{
@@ -473,6 +475,22 @@ p{
     align-items: right;
     text-align: right;
 }
+.date1{
+    align-items: right;
+    text-align: right;
+}
+.savebtn{
+    width:30%;
+    align-items: right;
+   
+}
+.cancelbtn{
+    width:30%;
+    background-color: white;
+    color:rgb(10, 48, 10);
+    border:1px solid rgb(10, 48, 10);
+    align-items: left;
+}
 
 @media screen and (max-width:  900px){
     .wrapper .foodItems{
@@ -485,6 +503,64 @@ p{
     }
 }
 
+/* Custom Modal Styles */
+.modal-content {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    height: auto;
+  }
+  
+.modal-title {
+    color: #333;
+    font-weight: bold;
+  }
+  .guage{
+    width:100%;
+    max-width: 200px;
+    
+  }
+.guage--body{
+    
+    width:80%;
+    height: 0;
+    margin:20px;
+    margin-left: 30px;
+    padding-bottom:50%;
+    background-color: rgb(194, 248, 188);
+    position: relative;
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
+    overflow:hidden;
+  }
+
+.guage--fill{
+    position: absolute;
+    top:100%;
+    right:50%;
+    width: inherit ;
+    height: 120%;
+    margin-left: 15px;
+    background-color: rgb(10, 48, 10);
+    transform-origin:center top;
+    transform: rotate(0.25turn);
+    transition: transform 0.2s ease-out;
+}
+.guage--cover{
+    width:65%;
+    height:150%;
+    background-color: rgb(191, 218, 175);
+    position: absolute;
+    border-radius: 50%;
+    top: 25%;
+    left:50%;
+    transform: translateX(-50%);
+    display: flex;
+    padding-bottom: 25%;
+    padding-left:9%;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box
+}
 
 
 
