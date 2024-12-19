@@ -23,15 +23,15 @@
         </div>
 
         <div id = "loginContainer2">
-            <form>
+            <form action="index.js"  method="POST">
 
                 <h2><i class="fas fa-utensils"></i> FitMeal Partner </h2><br>
                 <h3> Login </h3><br>
 
-                <input type = "text" class="username" placeholder = "E-mail" name="Email" id="loginInput" required value><br>
-                <input type = "password"  class="password" placeholder = "Password" name="Password" id="loginInput1" required><br>
+                <input type = "text" class="username" placeholder = "E-mail" name="email" id="loginInput1" required ><br>
+                <input type = "password"  class="password" placeholder = "Password" name="password" id="loginInput2" required><br>
 
-                <button type = "button" value = "Login " id="loginInput2" onclick="handleSubmit()"> Login </button><br>
+                <button type = "button" value = "submit" id="loginInput" onclick="handleSubmit(event)"> Login </button><br>
                 <p> Don't have an account? <span id = "regiterFormLink"  onclick = "toOpenRegisterationForm()"> Register </span></p><br>
 
             </form>
