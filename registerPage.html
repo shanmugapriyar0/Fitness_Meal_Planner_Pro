@@ -23,19 +23,19 @@
         </div>
 
         <div id="registerContiner2">
-            <form >
+            <form action="index.js"  method="POST">
 
                 <h2><i class="fas fa-utensils"></i> FitMeal Partner</h2><br>
                 <h3> Create a Account</h3><br>
                 
-                <input type="text" placeholder="Username" name="Username" required><br>
-                <input type = "text" placeholder = "E-mail" name="Email" required><br>
+                <input type="text" placeholder="Username" name="name" id="username"required><br>
+                <input type = "text" placeholder = "E-mail" name="email" id="useremail" required><br>
 
                 <input type = "password" placeholder = "Password"  name="password" id="pass1" onkeyup=" validatePassword()" required><br>
                 <input type = "password" placeholder = "Confirm Password" id="pass2" onkeyup=" validatePassword()" required ><br>
                 
                 <p id="message"></p>
-                <button type = "submit" value = " SignUp" > Sign-up </button><br>
+                <button type = "submit" value = " SignUp" onclick="handleSignUp(event)" > Sign-up </button><br>
                 <p> Yes I have an account? <span id = "regiterFormLink"  onclick = "toOpenLoginForm()"> Login </span></p><br>
 
             </form>
